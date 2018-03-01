@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图像处理--使用canvas实现一些常见的滤镜效果</title>
+</head>
+<body>
+<div id="div" style="margin: 50px auto; border: 2px black solid;">
+	<canvas id="canvasA" width="600" height="400" style="border: 1px black solid;margin:10px 40px;"></canvas>
+	<canvas id="canvasB" width="600" height="400" style="border: 1px black solid;margin:10px auto"></canvas>
+<!--
+<canvas id="canvasC" width="600" height="400" style="border: 1px black solid;margin:10px 40px"></canvas>
+	<canvas id="canvasD" width="600" height="400" style="border: 1px black solid;margin: 10px auto;"></canvas>
+-->	
+
+</div>
+<div id="but" style="text-align: center; margin-top: 30px">
+<input type="range" id="blur" min="0" max="15" value="0"  step="1"  width="400px"/><span id="sp1">模糊半径:</span><br>
+<input type="range" id="mosaic" min="0" max="45" value="0" step="3" width="400px" /><span id="sp2">马赛克半径:</span><br>
+
+
+<a href="javascript:gray()" style="margin: 5px;" >gray</a>
+<a href="javascript:gray2()" style="margin: 5px;" >gray2</a>
+<a href="javascript:whiteBlack()" style="margin: 5px;" >white-black</a>
+<a href="javascript:tored()" style="margin: 5px;" >red</a>
+<a href="javascript:togreen()" style="margin: 5px;" >green</a>
+<a href="javascript:toblue()" style="margin: 5px;" >blue</a>
+
+<a href="javascript:blur(2)" style="margin: 5px;" >blur</a>
+<a href="javascript:mosaic(20)" style="margin: 5px;" >mosaic</a>
+
+</div>
+<script type="text/javascript" src="js/filter.js"></script>
+</body>
+</html>

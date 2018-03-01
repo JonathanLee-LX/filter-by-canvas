@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>颜色板</title>
+</head>
+<body>
+	<div id="div" style="margin: 20px auto;border: 2px solid black;">
+		<canvas id="canvas" width="800px" height="800px" style="margin: 20px auto;border: 2px solid black;display: block;">
+			你的浏览器不支持canvas
+		</canvas>
+		<span>heiheiheihei</span>
+	</div>
+	<script type="text/javascript">
+		var canvas=document.getElementById("canvas");
+		var context=canvas.getContext("2d");
+		var imageData=context.getImageData(0,0,800,800);
+		//返回的是一个数组将这个数组的引用给pixelData,如果修改pixelData数组中的数据，那么imageData.data中的数据也会改变
+		var pixelData=imageData.data;
+
+		for (var i = 0; i < canvas.height; i++) {
+			for (var j = 0; j < canvas.width; j++) {
+				var p=i*canvas.width+j;
+				pixelData[p*4+0]=Math.pow(Math.cos(Math.atan2(j-400,i-400)/2),2)*255;
+				pixelData[p*4+1]=Math.pow(Math.cos(Math.atan2(j-400,i-400)/2-2*Math.acos(-1)/3),2)*255;
+				pixelData[p*4+2]=Math.pow(Math.cos(Math.atan2(j-400,i-400)/2+2*Math.acos(-1)/3),2)*255;
+				pixelData[p*4+3]=255;
+			}
+		}
+		console.log(pixelData);
+		//imageData.data=pixelData;
+		context.putImageData(imageData,0,0,0,0,800,800);
+	</script>
+</body>
+</html>
